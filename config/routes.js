@@ -33,24 +33,8 @@ module.exports.routes = {
      ***************************************************************************/
 
     '/': {
-        controller: "WebController",
-        action: "index",
-        skipAssets: true,
-        skipRegex: /api/i
-    },
-    // Add other if Possible
-
-    'GET /*': {
-        controller: "WebController",
-        action: "index",
-        skipAssets: true,
-        skipRegex: /api/i
-    },
-    "GET /api/download/:filename": {
-      controller: "WebController",
-      action: "download"
+        view: "404"
     }
-
     /***************************************************************************
      *                                                                          *
      * Custom routes here...                                                    *
