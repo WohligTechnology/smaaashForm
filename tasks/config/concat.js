@@ -14,29 +14,18 @@
  *   https://github.com/gruntjs/grunt-contrib-concat
  *
  */
-
-
 module.exports = function(grunt) {
 
-    grunt.config.set('concat', {
+  grunt.config.set('concat', {
+    js: {
+      src: require('../pipeline').jsFilesToInject,
+      dest: '.tmp/public/concat/production.js'
+    },
+    css: {
+      src: require('../pipeline').cssFilesToInject,
+      dest: '.tmp/public/concat/production.css'
+    }
+  });
 
-        development: {
-            options: {
-                sourceMap: false
-            },
-            src: require('../../frontend/files.js'),
-            dest: '.tmp/public/frontend/js/main.js'
-                // dest: '.tmp/public/concat/production.js'
-        },
-        production: {
-            options: {
-                sourceMap: false
-            },
-            src: require('../../frontend/files.js'),
-            dest: '.tmp/public/frontend/js/main.js'
-                // dest: '.tmp/public/concat/production.js'
-        }
-    });
-
-    grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-concat');
 };

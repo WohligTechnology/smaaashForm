@@ -17,9 +17,9 @@
 module.exports = function(grunt) {
 
   grunt.config.set('cssmin', {
-    production: {
-      src: ['.tmp/public/frontend/css/main.css'],
-      dest: '.tmp/public/frontend/css/main.min.css'
+    dist: {
+      src: ['.tmp/public/concat/production.css'],
+      dest: '.tmp/public/min/production.min.css'
     }
   });
 

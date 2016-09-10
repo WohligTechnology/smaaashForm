@@ -20,21 +20,8 @@
 
 // Ensure we're in the project directory, so relative paths work as expected
 // no matter where we actually lift from.
-
-
-
-
-
 process.chdir(__dirname);
-var mongoose;
-mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/absolute', function(err, data) {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log("Database Connected to Absolute");
-    }
-});
+
 // Ensure a "sails" can be located:
 (function() {
   var sails;
@@ -49,6 +36,17 @@ mongoose.connect('mongodb://localhost:27017/absolute', function(err, data) {
     console.error('but if it doesn\'t, the app will run with the global sails instead!');
     return;
   }
+
+  sails.mongoose = require('mongoose');
+  sails.mongoose.connect('mongodb://localhost:27017/smash', function (err) {
+      if (err) {
+          console.log(err);
+      }
+  });
+  sails.fs = require("fs");
+  sails.mime = require("mime");
+  sails.json2xls = require("json2xls");
+
 
   // Try to get `rc` dependency
   var rc;

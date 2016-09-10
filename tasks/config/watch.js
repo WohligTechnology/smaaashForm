@@ -17,20 +17,13 @@
 module.exports = function(grunt) {
 
   grunt.config.set('watch', {
-    sass: {
+    assets: {
+
       // Assets to watch:
-      files: ['frontend/sass/**'],
-      tasks: ['sass:development']
-    },
-    copy: {
-      // Assets to watch:
-      files: ['frontend/views/**','frontend/img/**','frontend/fonts/**'],
-      tasks: ['copy:development']
-    },
-    js: {
-      // Assets to watch:
-      files: ['frontend/js/**'],
-      tasks: ['copy:jsDevelopment']
+      files: ['assets/**/*', 'tasks/pipeline.js', '!**/node_modules/**'],
+
+      // When assets are changed:
+      tasks: ['syncAssets' , 'linkAssets' ]
     }
   });
 
